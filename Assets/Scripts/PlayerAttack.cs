@@ -9,7 +9,7 @@ public class PlayerAttack : MonoBehaviour
     {
         Debug.Log("Attacking " + target.name);
         var health = target.GetComponent<Health>();
-        if (health != null)
+        if (health != null || health.IsAlive())
         {
             playerAnimator.SetTrigger("castAttack");
             health.TakeDamage(data.attackDamage);
