@@ -9,7 +9,9 @@ public class ResourceManager : MonoBehaviour
     [SerializeField] float[] lanes = { -2.5f, 0f, 2.5f };
     [SerializeField] private float spawnChance = 0.5f;
     [SerializeField] private float spawnSeperationLenght = 2f;
+    private float minDistanceToCamera = 20f;
 
+    Camera mainCamera;
     List<int> availableLanes = new List<int> { 0, 1, 2 };
     public List<GameObject> resources = new List<GameObject>();
     public int maxResourceCount = 10;
@@ -22,12 +24,13 @@ public class ResourceManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+        mainCamera = Camera.main;
     }
 
     public void SpawnResource(Transform spawnOffset)
     {
         availableLanes = new List<int> { 0, 1, 2 };
-        if (Random.value > spawnChance || availableLanes.Count <= 0 || ActiveResourceCount >= maxResourceCount)
+        if (Random.value > spawnChance || availableLanes.Count <= 0 || ActiveResourceCount >= maxResourceCount )
             return;
         int maxSpawnAmount = 5;
         int spawnAmount = Random.Range(0, maxSpawnAmount);
@@ -37,12 +40,17 @@ public class ResourceManager : MonoBehaviour
         for (int i = 0; i < spawnAmount; i++)
         {
             float spawnPositionZ = topOfSpawnPostionZ - (i * spawnSeperationLenght);
-            var resource = Instantiate(resourcePrefab, spawnOffset);
-            resource.transform.position = new Vector3(
+            Vector3 spawnPos = new Vector3(
                 lanes[laneIndex],
                 spawnOffset.position.y,
                 spawnPositionZ
             );
+            
+            if (Vector3.Distance(mainCamera.transform.position, spawnPos) < minDistanceToCamera)
+                continue;
+
+            var resource = Instantiate(resourcePrefab, spawnOffset);
+            resource.transform.position = spawnPos;
             //resources.Add(resource);
         }
     }

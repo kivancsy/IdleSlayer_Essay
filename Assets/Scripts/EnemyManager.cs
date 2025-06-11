@@ -9,7 +9,9 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] float[] lanes = { -2.5f, 0f, 2.5f };
     [SerializeField] private float spawnChance = 0.3f;
 
+    private float minDistanceToCamera = 20f;
     public List<GameObject> enemies = new List<GameObject>();
+    private Camera mainCamera;
     public int maxEnemyCount = 1;
     public List<int> availableLanes = new List<int> { 0, 1, 2 };
 
@@ -22,6 +24,8 @@ public class EnemyManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+
+        mainCamera = Camera.main;
     }
 
     public void SpawnEnemy(Transform spawnOffset)
@@ -30,6 +34,9 @@ public class EnemyManager : MonoBehaviour
         if (Random.value > spawnChance || availableLanes.Count <= 0 || ActiveEnemyCount >= maxEnemyCount)
             return;
 
+        if (Vector3.Distance(mainCamera.transform.position, spawnOffset.position) < minDistanceToCamera)
+            return;
+        
         int laneIndex = SelectLane();
         var enemy = Instantiate(enemyPrefab, spawnOffset);
         enemy.transform.position = new Vector3(
