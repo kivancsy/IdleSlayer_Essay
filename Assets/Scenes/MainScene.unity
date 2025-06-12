@@ -878,6 +878,11 @@ MonoBehaviour:
   target: {fileID: 7940748304924890254}
   spawnParent: {fileID: 1053844907}
   projectiles: []
+--- !u!1 &791731840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3598450648177488075, guid: 77c12bdb4208b634cad498b8d5c685cb, type: 3}
+  m_PrefabInstance: {fileID: 4918913605161635037}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &801286783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,12 +1322,39 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 165889057775617187, guid: 77c12bdb4208b634cad498b8d5c685cb, type: 3}
   m_PrefabInstance: {fileID: 4918913605161635037}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 791731840}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e485d80075618745bbb70e56b24e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1696394234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791731840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2f0413a5bfe5a14aadfbada8c63902c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 0f814c57e5682da479741a531b016dff, type: 2}
+--- !u!114 &1696394235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791731840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb15ebd63499d574cbf74b18f887428f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 0
 --- !u!1 &2012718286
 GameObject:
   m_ObjectHideFlags: 0
@@ -1511,7 +1543,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3598450648177488075, guid: 77c12bdb4208b634cad498b8d5c685cb, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1696394234}
+    - targetCorrespondingSourceObject: {fileID: 3598450648177488075, guid: 77c12bdb4208b634cad498b8d5c685cb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1696394235}
   m_SourcePrefab: {fileID: 100100000, guid: 77c12bdb4208b634cad498b8d5c685cb, type: 3}
 --- !u!95 &7940748304924890253 stripped
 Animator:

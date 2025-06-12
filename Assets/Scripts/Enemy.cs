@@ -12,14 +12,15 @@ public class Enemy : MonoBehaviour
         health = GetComponent<Health>();
         health.Init(Data.maxHealth);
         health.OnDeath += OnDeath;
-        Debug.Log($"Max Health: {Data.maxHealth}, Current Health: {health.GetCurrentHealth()}");
     }
 
     private void OnDeath()
     {
+        health.OnDeath -= OnDeath;
         ResourceCollectManager.Instance.Collect(resourceType);
         Destroy(gameObject);
     }
+
     private void OnDestroy()
     {
         EnemyManager.Instance.enemies.Remove(gameObject);
