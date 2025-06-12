@@ -878,9 +878,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e485d80075618745bbb70e56b24e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  xClamp: 2.5
+  laneChangeSpeed: 10
+  lanes:
+  - -2.5
+  - 0
+  - 2.5
   playerAttack: {fileID: 2456547101570675623}
+  playerAnimator: {fileID: 0}
 --- !u!54 &6871798006992125846
 Rigidbody:
   m_ObjectHideFlags: 0

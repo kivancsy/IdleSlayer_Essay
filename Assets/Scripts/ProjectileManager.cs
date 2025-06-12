@@ -7,6 +7,9 @@ public class ProjectileManager : MonoBehaviour
 
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float spawnChance = 0.5f;
+    [SerializeField] ProjectileData projectileData;
+    [SerializeField] Transform target;
+    [SerializeField] Transform spawnParent;
     [SerializeField] public List<GameObject> projectiles = new List<GameObject>();
 
     private void Awake()
@@ -20,9 +23,15 @@ public class ProjectileManager : MonoBehaviour
     public void SpawnProjectileAtCastle(Transform spawnOffset)
     {
         if (!(Random.value < spawnChance)) return;
-        GameObject selectedProjectile = projectilePrefab;
-        Vector3 spawnPosition =
-            new Vector3(spawnOffset.position.x, spawnOffset.position.y, spawnOffset.position.z);
-        Instantiate(selectedProjectile, spawnPosition, Quaternion.identity);
+        GameObject projectile = Instantiate(projectilePrefab, spawnOffset.position, Quaternion.identity, spawnParent);
+
+        
+        Projectile projectileScript = projectile.GetComponent<Projectile>();
+        if (projectileScript != null && target != null && projectileData != null)
+        {
+            Vector3 targetPosition = target.position + Vector3.up * 1.5f;
+            Vector3 direction = (targetPosition - spawnOffset.position).normalized;
+            projectileScript.Init(direction, projectileData);
+        }
     }
 }

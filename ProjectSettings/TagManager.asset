@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Coin
+  - EnemyProjectile
+  - Lane
+  - Projectile
   layers:
   - Default
   - TransparentFX

@@ -3,9 +3,11 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private ProjectileData projectileData;
+    [SerializeField] private float lifetime = 5f;
 
     private Vector3 moveDirection;
     private float speed;
+    private float lifeTimer;
     private Health health;
 
     void Start()
@@ -13,7 +15,7 @@ public class Projectile : MonoBehaviour
         ProjectileManager.Instance.projectiles.Add(gameObject);
         health = GetComponent<Health>();
         health.Init(projectileData.maxHealth);
-        health.OnDeath += OnDeath;
+        //health.OnDeath += OnDeath;
         speed = projectileData.speed;
     }
 
@@ -26,6 +28,12 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         transform.position += moveDirection * (speed * Time.deltaTime);
+        
+        lifeTimer += Time.deltaTime;
+        if (lifeTimer >= lifetime)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,10 +48,18 @@ public class Projectile : MonoBehaviour
 
             Destroy(gameObject);
         }
+        else if (!other.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 
-    private void OnDeath()
+    private void OnDestroy()
     {
-        Destroy(gameObject);
+        ProjectileManager.Instance.projectiles.Remove(gameObject);
     }
+    // private void OnDeath()
+    // {
+    //     Destroy(gameObject);
+    // }
 }

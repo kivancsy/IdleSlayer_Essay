@@ -15,5 +15,5 @@ MonoBehaviour:
   projectileName: DemonBolt
   maxHealth: 1
   damage: 1
-  speed: 10
+  speed: 20
   prefab: {fileID: 4807724833815906901, guid: 67c4844a0e77dfd4987c23185c49e688, type: 3}
