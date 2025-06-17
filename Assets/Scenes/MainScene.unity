@@ -1396,6 +1396,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 0
+--- !u!114 &1696394241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791731840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 754164c3b7cce014c922695276d565b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRadius: 20
+  attackCoolDown: 1
+  projectilePrefab: {fileID: 6697691372921602116, guid: 688d27c0f4b95eb4c9441f03b7c4b898, type: 3}
+  projectileSpawnPoint: {fileID: 172993602}
+  projectileData: {fileID: 11400000, guid: e40a7800dbdfeb54492cbc10d6a52175, type: 2}
 --- !u!4 &1796539961 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4583368812968402374, guid: f6744a6930e7df044965467b76505afa, type: 3}
@@ -1706,6 +1723,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3598450648177488075, guid: 77c12bdb4208b634cad498b8d5c685cb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1696394235}
+    - targetCorrespondingSourceObject: {fileID: 3598450648177488075, guid: 77c12bdb4208b634cad498b8d5c685cb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1696394241}
   m_SourcePrefab: {fileID: 100100000, guid: 77c12bdb4208b634cad498b8d5c685cb, type: 3}
 --- !u!95 &7940748304924890253 stripped
 Animator:
