@@ -16,7 +16,7 @@ public class EnemyManager : MonoBehaviour
     public List<int> availableLanes = new List<int> { 0, 1, 2 };
 
     public int ActiveEnemyCount =>
-        enemies.Count; //Chatgpt'ye sor start'a yazsak farki ne - valuetype vs refarence type farki
+        enemies.Count;
 
     private void Awake()
     {
