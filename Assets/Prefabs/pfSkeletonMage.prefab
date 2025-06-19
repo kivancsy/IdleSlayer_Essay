@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4907863331532736079}
   - component: {fileID: 8098201510874000840}
+  - component: {fileID: 8928963500104917044}
   m_Layer: 0
   m_Name: pfSkeletonMage
   m_TagString: Enemy
@@ -31,6 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1702463436922056361}
+  - {fileID: 1389709321160828417}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8098201510874000840
@@ -48,6 +50,54 @@ MonoBehaviour:
   floatAmplitude: 0.2
   floatFrequency: 1
   rotationSpeed: 90
+--- !u!114 &8928963500104917044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5241419804456108199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ec99d6fbab5ec48b3175b760aa884e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefabs: []
+  obstaclesSpawnTime: 1
+  obstacleParent: {fileID: 1389709321160828417}
+  spawnWidth: 3
+  spawnHeight: 3
+--- !u!1 &8378224717831996095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1389709321160828417}
+  m_Layer: 0
+  m_Name: Obstacle Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1389709321160828417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8378224717831996095}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.030003086, y: 0.350818, z: -0.038388643, w: 0.93517536}
+  m_LocalPosition: {x: -0.042, y: 3.23, z: -1.546}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4907863331532736079}
+  m_LocalEulerAnglesHint: {x: -1.672, y: 41.204, z: -5.33}
 --- !u!1001 &2283621077653589043
 PrefabInstance:
   m_ObjectHideFlags: 0

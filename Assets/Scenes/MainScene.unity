@@ -691,6 +691,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 441780226}
+  - component: {fileID: 441780227}
   m_Layer: 0
   m_Name: Obstacle Spawn Point
   m_TagString: Untagged
@@ -713,11 +714,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 704985257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &540128015 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4907863331532736079, guid: e5ded383bf540a94eb32f317e9a3e5a5, type: 3}
-  m_PrefabInstance: {fileID: 809394079}
+--- !u!114 &441780227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441780225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ec99d6fbab5ec48b3175b760aa884e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefabs: []
+  obstaclesSpawnTime: 1
+  obstacleParent: {fileID: 441780226}
+  spawnWidth: 3
+  spawnHeight: 3
 --- !u!1 &546608017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,7 +1063,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 441780226}
-  - {fileID: 540128015}
   m_Father: {fileID: 546608018}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &801286783
@@ -1128,63 +1140,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801286783}
   m_CullTransparentMesh: 1
---- !u!1001 &809394079
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 704985257}
-    m_Modifications:
-    - target: {fileID: 4907863331532736079, guid: e5ded383bf540a94eb32f317e9a3e5a5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4907863331532736079, guid: e5ded383bf540a94eb32f317e9a3e5a5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4907863331532736079, guid: e5ded383bf540a94eb32f317e9a3e5a5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4907863331532736079, guid: e5ded383bf540a94eb32f317e9a3e5a5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4907863331532736079, guid: e5ded383bf540a94eb32f317e9a3e5a5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4907863331532736079, guid: e5ded383bf540a94eb32f317e9a3e5a5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4907863331532736079, guid: e5ded383bf540a94eb32f317e9a3e5a5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4907863331532736079, guid: e5ded383bf540a94eb32f317e9a3e5a5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4907863331532736079, guid: e5ded383bf540a94eb32f317e9a3e5a5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4907863331532736079, guid: e5ded383bf540a94eb32f317e9a3e5a5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5241419804456108199, guid: e5ded383bf540a94eb32f317e9a3e5a5, type: 3}
-      propertyPath: m_Name
-      value: pfSkeletonMage
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e5ded383bf540a94eb32f317e9a3e5a5, type: 3}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
