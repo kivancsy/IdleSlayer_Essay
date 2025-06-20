@@ -17,7 +17,7 @@ public class Resource : MonoBehaviour
             ResourceCollectManager.Instance.Collect(resourceType);
             Destroy(gameObject);
         }
-        else if (!other.CompareTag("Player"))
+        else if (other.CompareTag("Enemy"))
         {
             ResourceManager.Instance.RemoveResource(gameObject);
             Destroy(gameObject);

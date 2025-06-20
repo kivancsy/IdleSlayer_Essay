@@ -7,19 +7,25 @@ public class PlayerAutoAttack : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] ProjectileData projectileData;
+
     [SerializeField] private float laneTolerance = 0.1f;
-   // [SerializeField] private float[] lanes = { -2.5f, 0f, 2.5f };
+
+    // [SerializeField] private float[] lanes = { -2.5f, 0f, 2.5f };
     private float coolDownTimer;
 
     private void Update()
     {
         coolDownTimer -= Time.deltaTime;
 
-        GameObject target = FindNearestEnemy();
-        if (target != null && coolDownTimer <= 0f)
+
+        if (coolDownTimer <= 0)
         {
-            FireAt(target);
-            coolDownTimer = attackCoolDown;
+            GameObject target = FindNearestEnemy();
+            if (target != null)
+            {
+                FireAt(target);
+                coolDownTimer = attackCoolDown;
+            }
         }
     }
 

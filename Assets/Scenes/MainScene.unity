@@ -682,55 +682,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
---- !u!1 &441780225
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 441780226}
-  - component: {fileID: 441780227}
-  m_Layer: 0
-  m_Name: Obstacle Spawn Point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &441780226
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 441780225}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.22, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 704985257}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &441780227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 441780225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6ec99d6fbab5ec48b3175b760aa884e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstaclePrefabs: []
-  obstaclesSpawnTime: 1
-  obstacleParent: {fileID: 441780226}
-  spawnWidth: 3
-  spawnHeight: 3
 --- !u!1 &546608017
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +717,7 @@ Transform:
   - {fileID: 562204169}
   - {fileID: 1357879948}
   - {fileID: 704985257}
+  - {fileID: 1768638476}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &555271880
@@ -1042,6 +994,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 704985257}
+  - component: {fileID: 704985258}
   m_Layer: 0
   m_Name: Skeleton Mage Spawn Point
   m_TagString: Untagged
@@ -1061,10 +1014,26 @@ Transform:
   m_LocalPosition: {x: 0, y: 4.57, z: 15.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 441780226}
+  m_Children: []
   m_Father: {fileID: 546608018}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &704985258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704985256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5921e0fd873550547b1a37780581249d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magePrefab: {fileID: 5241419804456108199, guid: e5ded383bf540a94eb32f317e9a3e5a5, type: 3}
+  spawnPoint: {fileID: 704985257}
+  spawnDelay: 1
+  maxMages: 1
+  spawnChance: 0.05
 --- !u!1 &801286783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,6 +1479,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e485d80075618745bbb70e56b24e752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1768638475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1768638476}
+  m_Layer: 0
+  m_Name: ActiveObstacles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1768638476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768638475}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 13.66, z: 15.71}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 546608018}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1807927907 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3086985682330071673, guid: 77c12bdb4208b634cad498b8d5c685cb, type: 3}
@@ -1544,14 +1544,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4524d135334f21a083a79accc7cf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1868742704819940911, guid: d6b3d4df48cd228498233da19f6aa1ea, type: 3}
+  enemyPrefab: {fileID: 8795159790301565754, guid: abea00a99887ca34895536fce958a15e, type: 3}
   lanes:
   - -2.5
   - 0
   - 2.5
   spawnChance: 0.1
   enemies: []
-  maxEnemyCount: 1
+  maxEnemyCount: 5
   availableLanes: 000000000100000002000000
 --- !u!4 &2012718288
 Transform:
@@ -1630,7 +1630,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1277729797494378883, guid: 77c12bdb4208b634cad498b8d5c685cb, type: 3}
       propertyPath: attackCoolDown
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3598450648177488075, guid: 77c12bdb4208b634cad498b8d5c685cb, type: 3}
       propertyPath: m_Name

@@ -10,7 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4907863331532736079}
   - component: {fileID: 8098201510874000840}
-  - component: {fileID: 8928963500104917044}
+  - component: {fileID: 3545366284328450864}
+  - component: {fileID: -566825332043576129}
+  - component: {fileID: 427214224312602246}
+  - component: {fileID: 3326434834568759430}
+  - component: {fileID: 3898502062656982152}
   m_Layer: 0
   m_Name: pfSkeletonMage
   m_TagString: Enemy
@@ -50,7 +54,35 @@ MonoBehaviour:
   floatAmplitude: 0.2
   floatFrequency: 1
   rotationSpeed: 90
---- !u!114 &8928963500104917044
+--- !u!114 &3545366284328450864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5241419804456108199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aeb7cef5f6cab64eb3f3a56c1ff5d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 27392d2c741c47d4380a4d7d6eff829c, type: 2}
+  obstacleSpawn: {fileID: 427214224312602246}
+--- !u!114 &-566825332043576129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5241419804456108199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb15ebd63499d574cbf74b18f887428f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 0
+--- !u!114 &427214224312602246
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,11 +94,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ec99d6fbab5ec48b3175b760aa884e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefabs: []
-  obstaclesSpawnTime: 1
-  obstacleParent: {fileID: 1389709321160828417}
-  spawnWidth: 3
-  spawnHeight: 3
+  obstaclePrefabs:
+  - {fileID: 6037442292658009174, guid: e37265424f741db45b21c806fd4ea128, type: 3}
+  - {fileID: 8803056716560337443, guid: a425dc60b3aa6804c913d87e5a159065, type: 3}
+  - {fileID: 7849409826591908392, guid: ecd157dce1471074d8446f456147dc6e, type: 3}
+  - {fileID: 8226370308824198617, guid: 0433ccb5aa347454c949bcc82744c08f, type: 3}
+  spawnInterval: 1.5
+  lanes:
+  - -2.5
+  - 2.5
+--- !u!65 &3326434834568759430
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5241419804456108199}
+  m_Material: {fileID: 13400000, guid: 89d3cd30e5924aa489b17b9a456c253a, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.86, z: 1}
+  m_Center: {x: 0.15, y: 1.95, z: -1.35}
+--- !u!54 &3898502062656982152
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5241419804456108199}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8378224717831996095
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,7 +176,7 @@ Transform:
   m_GameObject: {fileID: 8378224717831996095}
   serializedVersion: 2
   m_LocalRotation: {x: -0.030003086, y: 0.350818, z: -0.038388643, w: 0.93517536}
-  m_LocalPosition: {x: -0.042, y: 3.23, z: -1.546}
+  m_LocalPosition: {x: 0.03, y: 4.57, z: -1.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

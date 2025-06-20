@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdc6f24a1db108144a47debb8487d225, type: 3}
-  m_Name: skeletonBaseValues
+  m_Name: SkeletonWarriorBaseValues
   m_EditorClassIdentifier: 
   enemyName: Skeleton
   maxHealth: 1

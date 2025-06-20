@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 331de5e0cdca743468a9137c524e218a, type: 3}
-  m_Name: skeletonEnemy
+  m_Name: SkeletonWarriorEnemy
   m_EditorClassIdentifier: 
-  resourceName: Skeleton
+  resourceName: SkeletonWarrior
   gameObject: {fileID: 1868742704819940911, guid: d6b3d4df48cd228498233da19f6aa1ea, type: 3}
-  value: 10
+  value: 3
