@@ -1,9 +1,10 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemySkeletonMageSpawn : MonoBehaviour
 {
-    [SerializeField] private GameObject magePrefab;
+    [SerializeField] private List<GameObject> magePrefabs;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float spawnDelay = 5f;
     [SerializeField] private int maxMages = 1;
@@ -33,7 +34,7 @@ public class EnemySkeletonMageSpawn : MonoBehaviour
     {
         if (Random.value > spawnChance || currentMageCount >= maxMages)
             return;
-        GameObject mage = Instantiate(magePrefab, spawnPoint.position, spawnPoint.rotation, spawnPoint);
+        GameObject mage = Instantiate(magePrefabs[Random.Range(0, magePrefabs.Count)], spawnPoint.position, spawnPoint.rotation, spawnPoint);
 
         var enemy = mage.GetComponent<BaseEnemy>();
         if (enemy != null)
