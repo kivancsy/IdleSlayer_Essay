@@ -13,10 +13,6 @@ public class EnemySkeletonMage : BaseEnemy
         {
             obstacleSpawn.StartSpawning();
         }
-        else
-        {
-            Debug.LogWarning("ObstacleSpawner is not assigned.");
-        }
     }
 
     protected override void HandleDeath()
