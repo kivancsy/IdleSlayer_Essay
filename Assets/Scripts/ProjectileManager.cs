@@ -29,7 +29,7 @@ public class ProjectileManager : MonoBehaviour
         Projectile projectileScript = projectile.GetComponent<Projectile>();
         if (projectileScript != null && target != null && projectileData != null)
         {
-            Vector3 targetPosition = target.position + Vector3.up * 1.5f;
+            Vector3 targetPosition = target.position + Vector3.up * 2f;
             Vector3 direction = (targetPosition - spawnOffset.position).normalized;
             projectileScript.Init(direction, projectileData);
         }

@@ -87,8 +87,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.0694023
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.039467793
+  m_Center: {x: 0, y: -0.00018194961, z: 0}
 --- !u!114 &-4406681385972929022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileData: {fileID: 11400000, guid: fab295c8e6601df4ca23163e63703294, type: 2}
+  lifetime: 5
 --- !u!114 &9203794751974566923
 MonoBehaviour:
   m_ObjectHideFlags: 0
