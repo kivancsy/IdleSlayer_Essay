@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemySkeletonMage : BaseEnemy
 {
     [SerializeField] private ObstacleSpawn obstacleSpawn;
+    [SerializeField] private EnemyMageProjectileAttack mageProjectileAttack;
     //[SerializeField] private ResourceType resourceType;
 
     protected override void Start()
@@ -13,6 +14,9 @@ public class EnemySkeletonMage : BaseEnemy
         {
             obstacleSpawn.StartSpawning();
         }
+
+        if (mageProjectileAttack != null)
+            mageProjectileAttack.StartFiring();
     }
 
     protected override void HandleDeath()
@@ -22,6 +26,8 @@ public class EnemySkeletonMage : BaseEnemy
             obstacleSpawn.StopSpawning();
         }
 
+        if (mageProjectileAttack != null)
+            mageProjectileAttack.StopFiring();
         //ResourceCollectManager.Instance.Collect(resourceType);
         base.HandleDeath();
     }
