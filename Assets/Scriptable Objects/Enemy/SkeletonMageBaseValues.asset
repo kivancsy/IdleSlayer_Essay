@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SkeletonMageBaseValues
   m_EditorClassIdentifier: 
   enemyName: Skeleton
-  maxHealth: 3
+  maxHealth: 5

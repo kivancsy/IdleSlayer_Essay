@@ -9,7 +9,7 @@ public class ResourceManager : MonoBehaviour
     [SerializeField] float[] lanes = { -2.5f, 0f, 2.5f };
     [SerializeField] private float spawnChance = 0.5f;
     [SerializeField] private float spawnSeperationLenght = 2f;
-    private float minDistanceToCamera = 20f;
+    private float minDistanceToCamera = 30f;
 
     Camera mainCamera;
     List<int> availableLanes = new List<int> { 0, 1, 2 };

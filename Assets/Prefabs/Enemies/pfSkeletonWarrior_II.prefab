@@ -2822,7 +2822,7 @@ GameObject:
   - component: {fileID: -4293101222494820444}
   m_Layer: 0
   m_Name: pfSkeletonWarrior_II
-  m_TagString: Enemy
+  m_TagString: EnemyMelee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2913,8 +2913,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.67, y: 1.6614612, z: 1}
-  m_Center: {x: 0, y: 1.0163682, z: 0}
+  m_Size: {x: 0.67, y: 1.6614615, z: 1.2926773}
+  m_Center: {x: 0, y: 1.016368, z: 0.50930125}
 --- !u!54 &-4293101222494820444
 Rigidbody:
   m_ObjectHideFlags: 0

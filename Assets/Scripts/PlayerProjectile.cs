@@ -4,6 +4,7 @@ public class PlayerProjectile : MonoBehaviour
 {
     [SerializeField] private ProjectileData projectileData;
     [SerializeField] private float lifetime = 5f;
+    [SerializeField] private ParticleSystem destroyParticlePrefab;
 
     private Vector3 moveDirection;
     private float speed;
@@ -40,11 +41,15 @@ public class PlayerProjectile : MonoBehaviour
             {
                 enemyHealth.TakeDamage(projectileData.damage);
             }
+            PlayDestroyParticle();
             Destroy(gameObject);
         }
-        else if (!other.CompareTag("Player") && !other.isTrigger)
+    }
+    private void PlayDestroyParticle()
+    {
+        if (destroyParticlePrefab != null)
         {
-            Destroy(gameObject);
+            Instantiate(destroyParticlePrefab, transform.position, Quaternion.identity);
         }
     }
 }

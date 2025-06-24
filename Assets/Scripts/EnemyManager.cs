@@ -9,7 +9,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] float[] lanes = { -2.5f, 0f, 2.5f };
     [SerializeField] private float spawnChance = 0.3f;
 
-    private float minDistanceToCamera = 20f;
+    private float minDistanceToCamera = 30f;
     public List<GameObject> enemies = new List<GameObject>();
     private Camera mainCamera;
     public int maxEnemyCount = 1;

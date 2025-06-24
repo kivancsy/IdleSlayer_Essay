@@ -10,6 +10,7 @@ TagManager:
   - EnemyProjectile
   - Lane
   - Obstacle
+  - EnemyMelee
   layers:
   - Default
   - TransparentFX
