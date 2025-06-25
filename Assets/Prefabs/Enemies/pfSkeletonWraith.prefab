@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileData: {fileID: 11400000, guid: fe27e2e0ca139d14996e4d70168487f9, type: 2}
-  fireInterval: 1
+  fireInterval: 1.5
 --- !u!114 &-1012341802705326368
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -59,14 +59,9 @@ public class Obstacle : MonoBehaviour
 
             Destroy(gameObject);
         }
-        else if (other.CompareTag("Obstacle") || other.CompareTag("EnemyMelee"))
+        else if (other.CompareTag("EnemyMelee"))
         {
-            if (other.CompareTag("EnemyMelee"))
-            {
-               Destroy(other.gameObject);
-            }
-
-            Destroy(gameObject);
+            Destroy(other.gameObject);
         }
     }
 

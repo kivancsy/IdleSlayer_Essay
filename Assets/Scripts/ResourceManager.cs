@@ -33,7 +33,7 @@ public class ResourceManager : MonoBehaviour
         if (Random.value > spawnChance || availableLanes.Count <= 0 || ActiveResourceCount >= maxResourceCount )
             return;
         int maxSpawnAmount = 6;
-        int spawnAmount = Random.Range(3, maxSpawnAmount);
+        int spawnAmount = Random.Range(5, maxSpawnAmount);
         float topOfSpawnPostionZ = spawnOffset.position.z + (spawnSeperationLenght * 2);
         int laneIndex = SelectLane();
 
