@@ -68,6 +68,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 27392d2c741c47d4380a4d7d6eff829c, type: 2}
   obstacleSpawn: {fileID: 427214224312602246}
+  mageProjectileAttack: {fileID: 0}
+  resourceType: {fileID: 11400000, guid: 310829956978e704d8677758aaf37c67, type: 2}
 --- !u!114 &-566825332043576129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,7 +101,7 @@ MonoBehaviour:
   - {fileID: 8803056716560337443, guid: a425dc60b3aa6804c913d87e5a159065, type: 3}
   - {fileID: 7849409826591908392, guid: ecd157dce1471074d8446f456147dc6e, type: 3}
   - {fileID: 8226370308824198617, guid: 0433ccb5aa347454c949bcc82744c08f, type: 3}
-  spawnInterval: 1.5
+  spawnInterval: 1
   lanes:
   - -2.5
   - 2.5

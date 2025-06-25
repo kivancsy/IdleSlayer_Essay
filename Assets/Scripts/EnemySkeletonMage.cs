@@ -4,7 +4,7 @@ public class EnemySkeletonMage : BaseEnemy
 {
     [SerializeField] private ObstacleSpawn obstacleSpawn;
     [SerializeField] private EnemyMageProjectileAttack mageProjectileAttack;
-    //[SerializeField] private ResourceType resourceType;
+    [SerializeField] private ResourceType resourceType;
 
     protected override void Start()
     {
@@ -28,7 +28,7 @@ public class EnemySkeletonMage : BaseEnemy
 
         if (mageProjectileAttack != null)
             mageProjectileAttack.StopFiring();
-        //ResourceCollectManager.Instance.Collect(resourceType);
+        ResourceCollectManager.Instance.Collect(resourceType);
         base.HandleDeath();
     }
 }
