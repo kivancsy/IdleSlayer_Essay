@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerData playerData;
-
+    [SerializeField] private HealthUI healthUI;
     private Health health;
 
     public bool IsDead => !health.IsAlive();
@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
 
         health.Init(playerData.maxHealth);
         health.OnDeath += HandleDeath;
+
+        healthUI.UpdateHealth(health.GetCurrentHealth());
     }
 
     private void HandleDeath()
@@ -40,16 +42,12 @@ public class Player : MonoBehaviour
         if (health != null)
             health.OnDeath -= HandleDeath;
     }
-
-    public void Heal(float amount)
-    {
-        if (!IsDead)
-            health.Heal(amount);
-    }
     
-    public void TakeDamage(float amount)
+
+    public void PlayerTakeDamage(float amount)
     {
         if (!IsDead)
             health.TakeDamage(amount);
+        healthUI.UpdateHealth(health.GetCurrentHealth());
     }
 }

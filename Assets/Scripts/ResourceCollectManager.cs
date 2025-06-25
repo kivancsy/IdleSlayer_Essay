@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ResourceCollectManager : MonoBehaviour
@@ -6,6 +8,8 @@ public class ResourceCollectManager : MonoBehaviour
     public static ResourceCollectManager Instance;
 
     private Dictionary<string, int> collectedResources = new Dictionary<string, int>();
+
+    public event Action<ResourceType, int> OnResourcesUpdated;
 
     private void Awake()
     {
@@ -19,20 +23,7 @@ public class ResourceCollectManager : MonoBehaviour
             collectedResources[resourceType.resourceName] = 0;
 
         collectedResources[resourceType.resourceName] += resourceType.value;
-        Debug.Log($"Collected {resourceType.resourceName}: {collectedResources[resourceType.resourceName]}");
 
-        UpdateAllResourcesText();
-    }
-    
-
-    private void UpdateAllResourcesText()
-    {
-        int total = 0;
-        foreach (var resource in collectedResources)
-        {
-            total += resource.Value;
-        }
-
-        UIManager.Instance.UpdateResourceText(total.ToString());
+        OnResourcesUpdated?.Invoke(resourceType, collectedResources[resourceType.resourceName]);
     }
 }

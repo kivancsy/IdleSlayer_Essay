@@ -54,7 +54,7 @@ public class Obstacle : MonoBehaviour
             Player player = other.GetComponent<Player>();
             if (player != null)
             {
-                player.TakeDamage(data.damage);
+                player.PlayerTakeDamage(data.damage);
             }
 
             Destroy(gameObject);

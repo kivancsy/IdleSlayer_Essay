@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     private float speed;
     private float lifeTimer;
     private Health health;
+    private Player player;
 
     void Start()
     {
@@ -40,10 +41,10 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Health playerHealth = other.GetComponent<Health>();
+            Player playerHealth = other.GetComponent<Player>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(projectileData.damage);
+                playerHealth.PlayerTakeDamage(projectileData.damage);
             }
 
             Destroy(gameObject);
