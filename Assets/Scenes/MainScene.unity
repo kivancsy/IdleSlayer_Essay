@@ -5135,7 +5135,7 @@ MonoBehaviour:
   - -2.5
   - 0
   - 2.5
-  healthSpawnChance: 0.01
+  healthSpawnChance: 0.005
   maxActiveHealthPickups: 1
 --- !u!1 &176215503
 GameObject:
@@ -6081,7 +6081,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 704985257}
   spawnDelay: 1
   maxMages: 1
-  spawnChance: 0.08
+  spawnChance: 0.1
+  particleOnSpawn: {fileID: 7226888052703040407, guid: 7ec363c8df426644ea85f8d6d570561c, type: 3}
 --- !u!1 &801286783
 GameObject:
   m_ObjectHideFlags: 0
@@ -6788,6 +6789,10 @@ PrefabInstance:
       propertyPath: playerCollider
       value: 
       objectReference: {fileID: 1696394232}
+    - target: {fileID: 2456547101570675623, guid: 77c12bdb4208b634cad498b8d5c685cb, type: 3}
+      propertyPath: meleeAttackParticle
+      value: 
+      objectReference: {fileID: 888444077320411737, guid: 0c2509361b13505428ce788b7f846686, type: 3}
     - target: {fileID: 3598450648177488075, guid: 77c12bdb4208b634cad498b8d5c685cb, type: 3}
       propertyPath: m_Name
       value: Player

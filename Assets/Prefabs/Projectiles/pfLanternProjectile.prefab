@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileData: {fileID: 11400000, guid: e40a7800dbdfeb54492cbc10d6a52175, type: 2}
   lifetime: 5
-  destroyParticlePrefab: {fileID: 5112403345868107899, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
+  destroyParticlePrefab: {fileID: 1429954232896169632, guid: 83036083a4ebcd34f98131bd3cf6f4d2, type: 3}
 --- !u!136 &2329184559700406227
 CapsuleCollider:
   m_ObjectHideFlags: 0

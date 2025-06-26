@@ -34,7 +34,8 @@ public class EnemySkeletonMageSpawn : MonoBehaviour
     {
         if (Random.value > spawnChance || currentMageCount >= maxMages)
             return;
-        GameObject mage = Instantiate(magePrefabs[Random.Range(0, magePrefabs.Count)], spawnPoint.position, spawnPoint.rotation, spawnPoint);
+        GameObject mage = Instantiate(magePrefabs[Random.Range(0, magePrefabs.Count)], spawnPoint.position,
+            spawnPoint.rotation, spawnPoint);
 
         var enemy = mage.GetComponent<BaseEnemy>();
         if (enemy != null)

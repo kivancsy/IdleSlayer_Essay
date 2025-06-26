@@ -86,6 +86,7 @@ MonoBehaviour:
   obstacleSpawn: {fileID: 0}
   mageProjectileAttack: {fileID: 3604828799781017923}
   resourceType: {fileID: 11400000, guid: 310829956978e704d8677758aaf37c67, type: 2}
+  particleOnDeath: {fileID: 7226888052703040407, guid: 7ec363c8df426644ea85f8d6d570561c, type: 3}
 --- !u!114 &3604828799781017923
 MonoBehaviour:
   m_ObjectHideFlags: 0
