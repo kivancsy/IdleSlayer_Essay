@@ -50,4 +50,12 @@ public class Player : MonoBehaviour
             health.TakeDamage(amount);
         healthUI.UpdateHealth(health.GetCurrentHealth());
     }
+    public void PlayerHeal(float amount)
+    {
+        if (!IsDead)
+        {
+            health.Heal(amount);
+            healthUI.UpdateHealth(health.GetCurrentHealth());
+        }
+    }
 }

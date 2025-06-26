@@ -7,6 +7,9 @@ public class ResourceSpawn : MonoBehaviour
     [SerializeField] private float maxWaitTime = 20f;
     [SerializeField] private Transform spawnOffset;
 
+
+    HealthPickupManager healthPickupManager;
+
     void Start()
     {
         StartCoroutine(SpawnResourcesRoutine());
@@ -17,7 +20,14 @@ public class ResourceSpawn : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(minWaitTime, maxWaitTime));
-            ResourceManager.Instance.SpawnResource(spawnOffset);
+            if (Random.value < HealthPickupManager.Instance.healthSpawnChance)
+            {
+                HealthPickupManager.Instance.SpawnHealthPickup(spawnOffset);
+            }
+            else
+            {
+                ResourceManager.Instance.SpawnResource(spawnOffset);
+            }
         }
     }
 }

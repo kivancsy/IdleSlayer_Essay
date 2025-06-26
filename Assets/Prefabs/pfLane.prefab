@@ -68,6 +68,7 @@ MonoBehaviour:
   minWaitTime: 1
   maxWaitTime: 5
   spawnOffset: {fileID: 1971806881469106777}
+  healthSpawnChance: 0.5
 --- !u!65 &8711338323607343292
 BoxCollider:
   m_ObjectHideFlags: 0

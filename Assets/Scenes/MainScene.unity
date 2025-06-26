@@ -5086,6 +5086,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1357879948}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &166610554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 166610556}
+  - component: {fileID: 166610557}
+  m_Layer: 0
+  m_Name: Health Pickup Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &166610556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166610554}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &166610557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166610554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c15c77993eaccf46b24a07c0a6a482c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPickupPrefab: {fileID: 4041371983936842814, guid: de218f45f8d3f9949917013887382844, type: 3}
+  lanes:
+  - -2.5
+  - 0
+  - 2.5
+  healthSpawnChance: 0.01
+  maxActiveHealthPickups: 1
 --- !u!1 &176215503
 GameObject:
   m_ObjectHideFlags: 0
@@ -5096,6 +5147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 176215504}
   - component: {fileID: 176215505}
+  - component: {fileID: 176215506}
   m_Layer: 5
   m_Name: Resource Amount
   m_TagString: Untagged
@@ -5137,6 +5189,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
+--- !u!114 &176215506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176215503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d234c4733c5f34b948170a1cb5dfc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceText: {fileID: 368962933}
+  image: {fileID: 0}
+  resourceType: {fileID: 11400000, guid: 59ba81ceaf62d7144b9392331ce160e1, type: 2}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -5285,7 +5352,6 @@ GameObject:
   - component: {fileID: 368962932}
   - component: {fileID: 368962934}
   - component: {fileID: 368962933}
-  - component: {fileID: 368962935}
   m_Layer: 5
   m_Name: ResourceTMP
   m_TagString: Untagged
@@ -5412,20 +5478,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 368962931}
   m_CullTransparentMesh: 1
---- !u!114 &368962935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 368962931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d234c4733c5f34b948170a1cb5dfc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resourceText: {fileID: 368962933}
-  imageCoin: {fileID: 21300000, guid: 01042d33b54d5944db3c8f53a3000b39, type: 3}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -5557,6 +5609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 495425585}
   - component: {fileID: 495425586}
+  - component: {fileID: 495425587}
   m_Layer: 5
   m_Name: Health Amount
   m_TagString: Untagged
@@ -5598,6 +5651,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
+--- !u!114 &495425587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495425584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35b75294ebd122e43bebab42d6016856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceText: {fileID: 563847356}
 --- !u!1 &546608017
 GameObject:
   m_ObjectHideFlags: 0
@@ -5710,7 +5776,6 @@ GameObject:
   - component: {fileID: 563847354}
   - component: {fileID: 563847357}
   - component: {fileID: 563847356}
-  - component: {fileID: 563847355}
   m_Layer: 5
   m_Name: HealthTMP
   m_TagString: Untagged
@@ -5738,20 +5803,6 @@ RectTransform:
   m_AnchoredPosition: {x: 417, y: 214}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &563847355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563847353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d234c4733c5f34b948170a1cb5dfc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resourceText: {fileID: 563847356}
-  imageCoin: {fileID: 21300000, guid: 9dd59648e8e76e146b72e6497e0bc871, type: 3}
 --- !u!114 &563847356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6208,7 +6259,7 @@ MonoBehaviour:
   spawnChance: 0.5
   spawnSeperationLenght: 2
   resources: []
-  maxResourceCount: 10
+  maxResourceCount: 12
 --- !u!114 &921335493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6818,6 +6869,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8759275341637285553, guid: 77c12bdb4208b634cad498b8d5c685cb, type: 3}
+      propertyPath: healthUI
+      value: 
+      objectReference: {fileID: 495425587}
+    - target: {fileID: 8759275341637285553, guid: 77c12bdb4208b634cad498b8d5c685cb, type: 3}
       propertyPath: playerHealthText
       value: 
       objectReference: {fileID: 563847356}
@@ -6852,3 +6907,4 @@ SceneRoots:
   - {fileID: 4918913605161635037}
   - {fileID: 555271881}
   - {fileID: 4362162}
+  - {fileID: 166610556}
