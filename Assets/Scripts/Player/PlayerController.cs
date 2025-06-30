@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("EnemyMelee"))
+        if (other.gameObject.CompareTag("EnemyMelee") || other.gameObject.CompareTag("Enemy"))
         {
             playerAttack.Attack(other.gameObject);
         }

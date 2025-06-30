@@ -11,6 +11,8 @@ TagManager:
   - Lane
   - Obstacle
   - EnemyMelee
+  - FxTemporaire
+  - EnemyMinotaur
   layers:
   - Default
   - TransparentFX

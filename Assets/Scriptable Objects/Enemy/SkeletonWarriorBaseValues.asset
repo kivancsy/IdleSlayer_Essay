@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdc6f24a1db108144a47debb8487d225, type: 3}
   m_Name: SkeletonWarriorBaseValues
   m_EditorClassIdentifier: 
-  enemyName: Skeleton
+  enemyName: SkeletonWarrior
   maxHealth: 1
-  value: 10
