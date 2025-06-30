@@ -36,7 +36,7 @@ namespace Enemy
         private void OnTriggerEnter(Collider other)
         {
             if (isDead) return;
-
+            Debug.Log($"Çarpışan tag: {other.tag}, isim: {other.name}");
             if (other.CompareTag("Player"))
             {
                 var player = other.GetComponent<Player>();
@@ -45,8 +45,10 @@ namespace Enemy
                 {
                     player.PlayerTakeDamage(baseEnemy.EnemyData.damage);
                 }
-
-                Debug.Log($"OnTriggerEnter: Çarpışma gerçekleşti! Nesne adı: {other.name}");
+            }
+            else if (other.CompareTag("EnemyMelee") || other.CompareTag("Coin"))
+            {
+                Destroy(other.gameObject);
             }
         }
     }

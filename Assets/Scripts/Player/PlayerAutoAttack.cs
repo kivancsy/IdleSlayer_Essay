@@ -49,7 +49,6 @@ public class PlayerAutoAttack : MonoBehaviour
     IEnumerator Reload()
     {
         isReloading = true;
-        // Burada istersen reload animasyonu veya ses ekleyebilirsin
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = maxAmmo;
         isReloading = false;

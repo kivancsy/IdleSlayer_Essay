@@ -6844,6 +6844,10 @@ PrefabInstance:
       propertyPath: playerCollider
       value: 
       objectReference: {fileID: 1696394232}
+    - target: {fileID: 1277729797494378883, guid: 77c12bdb4208b634cad498b8d5c685cb, type: 3}
+      propertyPath: attackCoolDown
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2456547101570675623, guid: 77c12bdb4208b634cad498b8d5c685cb, type: 3}
       propertyPath: meleeAttackParticle
       value: 

@@ -63,7 +63,7 @@ public class Obstacle : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        else if (other.CompareTag("EnemyMelee"))
+        else if (other.CompareTag("EnemyMelee") || other.CompareTag("Enemy"))
         {
             Destroy(other.gameObject);
         }
