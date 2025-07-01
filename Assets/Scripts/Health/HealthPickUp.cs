@@ -14,7 +14,7 @@ public class HealthPickUp : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Player playerHealth = other.GetComponent<Player>();
+            Player.Player playerHealth = other.GetComponent<Player.Player>();
             if (playerHealth != null)
             {
                 playerHealth.PlayerHeal(healthAmount);

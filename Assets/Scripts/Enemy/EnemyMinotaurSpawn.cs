@@ -15,7 +15,7 @@ namespace Enemy
         [SerializeField] private float spawnChance = 0.05f;
         [SerializeField] float[] lanes = { -2.5f, 0f, 2.5f };
 
-        private int currentMinotaurCount = 0;
+        [SerializeField] private int currentMinotaurCount = 0;
 
         private void Start()
         {
@@ -46,7 +46,7 @@ namespace Enemy
                 spawnPoint.rotation * Quaternion.Euler(0, 180f, 0),
                 spawnPoint
             );
-
+            Debug.Log("Spawned Minotaur");
             var enemy = minotaur.GetComponent<BaseEnemy>();
             if (enemy != null)
             {
@@ -65,6 +65,7 @@ namespace Enemy
         private void HandleMinotaurDeath()
         {
             currentMinotaurCount--;
+            Debug.Log("Handle Death Worked");
         }
     }
 }

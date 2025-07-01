@@ -1,61 +1,63 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
+namespace Player
 {
-    [SerializeField] private PlayerData playerData;
-    [SerializeField] private HealthUI healthUI;
-    private Health health;
-
-    public bool IsDead => !health.IsAlive();
-    public float CurrentHealth => health.GetCurrentHealth();
-    public float MaxHealth => playerData != null ? playerData.maxHealth : 0f;
-
-    private void Awake()
+    public class Player : MonoBehaviour
     {
-        health = GetComponent<Health>();
-    }
+        [SerializeField] private PlayerData playerData;
+        [SerializeField] private HealthUI healthUI;
+        private Health health;
 
-    private void Start()
-    {
-        if (playerData == null)
+        public bool IsDead => !health.IsAlive();
+        public float CurrentHealth => health.GetCurrentHealth();
+        public float MaxHealth => playerData != null ? playerData.maxHealth : 0f;
+
+        private void Awake()
         {
-            Debug.LogError("PlayerData is not assigned in the Player script.");
-            return;
+            health = GetComponent<Health>();
         }
 
-        health.Init(playerData.maxHealth);
-        health.OnDeath += HandleDeath;
+        private void Start()
+        {
+            if (playerData == null)
+            {
+                Debug.LogError("PlayerData is not assigned in the Player script.");
+                return;
+            }
 
-        healthUI.UpdateHealth(health.GetCurrentHealth());
-    }
+            health.Init(playerData.maxHealth);
+            health.OnDeath += HandleDeath;
 
-    private void HandleDeath()
-    {
-        Debug.Log("Player has died.");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+            healthUI.UpdateHealth(health.GetCurrentHealth());
+        }
 
-    private void OnDestroy()
-    {
-        if (health != null)
-            health.OnDeath -= HandleDeath;
-    }
+        private void HandleDeath()
+        {
+            Debug.Log("Player has died.");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        private void OnDestroy()
+        {
+            if (health != null)
+                health.OnDeath -= HandleDeath;
+        }
     
 
-    public void PlayerTakeDamage(float amount)
-    {
-        if (!IsDead)
-            health.TakeDamage(amount);
-        healthUI.UpdateHealth(health.GetCurrentHealth());
-    }
-    public void PlayerHeal(float amount)
-    {
-        if (!IsDead)
+        public void PlayerTakeDamage(float amount)
         {
-            health.Heal(amount);
+            if (!IsDead)
+                health.TakeDamage(amount);
             healthUI.UpdateHealth(health.GetCurrentHealth());
+        }
+        public void PlayerHeal(float amount)
+        {
+            if (!IsDead)
+            {
+                health.Heal(amount);
+                healthUI.UpdateHealth(health.GetCurrentHealth());
+            }
         }
     }
 }

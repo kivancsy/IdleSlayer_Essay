@@ -1,53 +1,56 @@
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
-public class EnemySkeletonMageSpawn : MonoBehaviour
+namespace Enemy
 {
-    [SerializeField] private List<GameObject> magePrefabs;
-    [SerializeField] private Transform spawnPoint;
-    [SerializeField] private float spawnDelay = 5f;
-    [SerializeField] private int maxMages = 1;
-    [SerializeField] private float spawnChance = 0.05f;
-
-    private int currentMageCount = 0;
-
-    private void Start()
+    public class EnemySkeletonMageSpawn : MonoBehaviour
     {
-        StartCoroutine(SpawnMageRoutine());
-    }
+        [SerializeField] private List<GameObject> magePrefabs;
+        [SerializeField] private Transform spawnPoint;
+        [SerializeField] private float spawnDelay = 5f;
+        [SerializeField] private int maxMages = 1;
+        [SerializeField] private float spawnChance = 0.05f;
 
-    IEnumerator SpawnMageRoutine()
-    {
-        while (true)
+        private int currentMageCount = 0;
+
+        private void Start()
         {
-            yield return new WaitForSeconds(spawnDelay);
-
-            if (currentMageCount >= maxMages)
-                continue;
-
-            SpawnMage();
-        }
-    }
-
-    private void SpawnMage()
-    {
-        if (Random.value > spawnChance || currentMageCount >= maxMages)
-            return;
-        GameObject mage = Instantiate(magePrefabs[Random.Range(0, magePrefabs.Count)], spawnPoint.position,
-            spawnPoint.rotation, spawnPoint);
-
-        var enemy = mage.GetComponent<BaseEnemy>();
-        if (enemy != null)
-        {
-            enemy.OnDeath += HandleMageDeath;
+            StartCoroutine(SpawnMageRoutine());
         }
 
-        currentMageCount++;
-    }
+        IEnumerator SpawnMageRoutine()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(spawnDelay);
 
-    private void HandleMageDeath()
-    {
-        currentMageCount--;
+                if (currentMageCount >= maxMages)
+                    continue;
+
+                SpawnMage();
+            }
+        }
+
+        private void SpawnMage()
+        {
+            if (Random.value > spawnChance || currentMageCount >= maxMages)
+                return;
+            var mage = Instantiate(magePrefabs[Random.Range(0, magePrefabs.Count)], spawnPoint.position,
+                spawnPoint.rotation, spawnPoint);
+
+            var enemy = mage.GetComponent<BaseEnemy>();
+            if (enemy != null)
+            {
+                enemy.OnDeath += HandleMageDeath;
+            }
+
+            currentMageCount++;
+        }
+
+        private void HandleMageDeath()
+        {
+            currentMageCount--;
+        }
     }
 }

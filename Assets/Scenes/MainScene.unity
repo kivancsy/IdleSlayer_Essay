@@ -6457,6 +6457,7 @@ MonoBehaviour:
   - -2.5
   - 0
   - 2.5
+  currentMinotaurCount: 0
 --- !u!1 &1357879947
 GameObject:
   m_ObjectHideFlags: 0
@@ -6761,7 +6762,7 @@ MonoBehaviour:
   - -2.5
   - 0
   - 2.5
-  spawnChance: 0.1
+  spawnChance: 0.5
   enemies: []
   maxEnemyCount: 5
   availableLanes: 000000000100000002000000

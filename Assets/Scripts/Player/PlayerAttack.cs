@@ -1,18 +1,20 @@
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+namespace Player
 {
-    [SerializeField] PlayerData data;
-    [SerializeField] Animator playerAnimator;
-
-    public void Attack(GameObject target)
+    public class PlayerAttack : MonoBehaviour
     {
-        Debug.Log("Attacking " + target.name);
-        var health = target.GetComponent<Health>();
-        if (health != null || health.IsAlive())
+        [SerializeField] PlayerData data;
+        [SerializeField] Animator playerAnimator;
+
+        public void Attack(GameObject target)
         {
-            playerAnimator.SetTrigger("castAttack");
-            health.TakeDamage(data.attackDamage);
+            var health = target.GetComponent<Health>();
+            if (health != null || health.IsAlive())
+            {
+                playerAnimator.SetTrigger("castAttack");
+                health.TakeDamage(data.attackDamage);
+            }
         }
     }
 }

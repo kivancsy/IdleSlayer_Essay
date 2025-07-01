@@ -21,6 +21,7 @@ namespace Enemy
 
             if (transform.position.z < despawnZ)
             {
+                Debug.Log("Despawn Triggered");
                 OnDespawn?.Invoke();
                 Destroy(gameObject);
             }
@@ -36,10 +37,9 @@ namespace Enemy
         private void OnTriggerEnter(Collider other)
         {
             if (isDead) return;
-            Debug.Log($"Çarpışan tag: {other.tag}, isim: {other.name}");
             if (other.CompareTag("Player"))
             {
-                var player = other.GetComponent<Player>();
+                var player = other.GetComponent<Player.Player>();
                 var baseEnemy = GetComponent<BaseEnemy>();
                 if (player != null && baseEnemy != null && baseEnemy.EnemyData != null)
                 {

@@ -1,111 +1,113 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+namespace Player
 {
-    [SerializeField] float laneChangeSpeed = 10f;
-    [SerializeField] float[] lanes = { -2.5f, 0f, 2.5f };
-    [SerializeField] PlayerAttack playerAttack;
-    [SerializeField] Animator playerAnimator;
-
-    [SerializeField] float slideDuration = 0.7f;
-    [SerializeField] float slideColliderHeight = 0.5f;
-    [SerializeField] BoxCollider playerCollider;
-
-    int currentLaneIndex = 1;
-    float targetX;
-    float originalColliderHeight;
-    bool isSlide = false;
-    private float slideTimer;
-
-    Rigidbody rb;
-
-    private void Awake()
+    public class PlayerController : MonoBehaviour
     {
-        rb = GetComponent<Rigidbody>();
-        targetX = lanes[currentLaneIndex];
-        originalColliderHeight = playerCollider.size.y;
-    }
+        [SerializeField] float laneChangeSpeed = 10f;
+        [SerializeField] float[] lanes = { -2.5f, 0f, 2.5f };
+        [SerializeField] PlayerAttack playerAttack;
+        [SerializeField] Animator playerAnimator;
 
-    private void FixedUpdate()
-    {
-        HandleLaneMovement();
-        HandleSlide();
-    }
+        [SerializeField] float slideDuration = 0.7f;
+        [SerializeField] float slideColliderHeight = 0.5f;
+        [SerializeField] BoxCollider playerCollider;
 
-    public void Move(InputAction.CallbackContext context)
-    {
-        Vector2 input = context.ReadValue<Vector2>();
+        int currentLaneIndex = 1;
+        float targetX;
+        float originalColliderHeight;
+        bool isSlide = false;
+        private float slideTimer;
 
-        if (input.x < 0)
-            MoveLeft();
-        else if (input.x > 0)
-            MoveRight();
-    }
+        Rigidbody rb;
 
-    void MoveLeft()
-    {
-        if (currentLaneIndex > 0)
+        private void Awake()
         {
-            currentLaneIndex--;
+            rb = GetComponent<Rigidbody>();
             targetX = lanes[currentLaneIndex];
-            playerAnimator.SetTrigger("jump");
+            originalColliderHeight = playerCollider.size.y;
         }
-    }
 
-    void MoveRight()
-    {
-        if (currentLaneIndex < lanes.Length - 1)
+        private void FixedUpdate()
         {
-            currentLaneIndex++;
-            targetX = lanes[currentLaneIndex];
-            playerAnimator.SetTrigger("jump");
+            HandleLaneMovement();
+            HandleSlide();
         }
-    }
 
-    public void Slide(InputAction.CallbackContext context)
-    {
-        Vector2 input = context.ReadValue<Vector2>();
-        if (input.y < 0)
+        public void Move(InputAction.CallbackContext context)
         {
-            Debug.Log("Slide");
-            if (!isSlide)
+            Vector2 input = context.ReadValue<Vector2>();
+
+            if (input.x < 0)
+                MoveLeft();
+            else if (input.x > 0)
+                MoveRight();
+        }
+
+        void MoveLeft()
+        {
+            if (currentLaneIndex > 0)
             {
-                isSlide = true;
-                slideTimer = 0f;
-                playerAnimator.SetTrigger("isSlide");
-                playerCollider.size = new Vector3(playerCollider.size.x, slideColliderHeight, playerCollider.size.z);
+                currentLaneIndex--;
+                targetX = lanes[currentLaneIndex];
+                playerAnimator.SetTrigger("jump");
             }
         }
-    }
 
-    void HandleSlide()
-    {
-        if (isSlide)
+        void MoveRight()
         {
-            slideTimer += Time.fixedDeltaTime;
-            if (slideTimer >= slideDuration)
+            if (currentLaneIndex < lanes.Length - 1)
             {
-                isSlide = false;
-                playerCollider.size = new Vector3(playerCollider.size.x, originalColliderHeight, playerCollider.size.z);
+                currentLaneIndex++;
+                targetX = lanes[currentLaneIndex];
+                playerAnimator.SetTrigger("jump");
             }
         }
-    }
 
-    void HandleLaneMovement()
-    {
-        Vector3 currentPosition = rb.position;
-        Vector3 targetPosition = new Vector3(targetX, currentPosition.y, currentPosition.z);
-        Vector3 newPosition =
-            Vector3.MoveTowards(currentPosition, targetPosition, laneChangeSpeed * Time.fixedDeltaTime);
-        rb.MovePosition(newPosition);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("EnemyMelee") || other.gameObject.CompareTag("Enemy"))
+        public void Slide(InputAction.CallbackContext context)
         {
-            playerAttack.Attack(other.gameObject);
+            Vector2 input = context.ReadValue<Vector2>();
+            if (input.y < 0)
+            {
+                if (!isSlide)
+                {
+                    isSlide = true;
+                    slideTimer = 0f;
+                    playerAnimator.SetTrigger("isSlide");
+                    playerCollider.size = new Vector3(playerCollider.size.x, slideColliderHeight, playerCollider.size.z);
+                }
+            }
+        }
+
+        void HandleSlide()
+        {
+            if (isSlide)
+            {
+                slideTimer += Time.fixedDeltaTime;
+                if (slideTimer >= slideDuration)
+                {
+                    isSlide = false;
+                    playerCollider.size = new Vector3(playerCollider.size.x, originalColliderHeight, playerCollider.size.z);
+                }
+            }
+        }
+
+        void HandleLaneMovement()
+        {
+            Vector3 currentPosition = rb.position;
+            Vector3 targetPosition = new Vector3(targetX, currentPosition.y, currentPosition.z);
+            Vector3 newPosition =
+                Vector3.MoveTowards(currentPosition, targetPosition, laneChangeSpeed * Time.fixedDeltaTime);
+            rb.MovePosition(newPosition);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("EnemyMelee") || other.gameObject.CompareTag("Enemy"))
+            {
+                playerAttack.Attack(other.gameObject);
+            }
         }
     }
 }

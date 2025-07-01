@@ -51,7 +51,7 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Player player = collision.gameObject.GetComponent<Player>();
+            Player.Player player = collision.gameObject.GetComponent<Player.Player>();
             if (player != null)
             {
                 player.PlayerTakeDamage(data.damage);
