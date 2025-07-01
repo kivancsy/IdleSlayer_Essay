@@ -47,11 +47,11 @@ public class Obstacle : MonoBehaviour
         rb.AddForce(launch, ForceMode.Impulse);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Player player = other.GetComponent<Player>();
+            Player player = collision.gameObject.GetComponent<Player>();
             if (player != null)
             {
                 player.PlayerTakeDamage(data.damage);
@@ -59,7 +59,11 @@ public class Obstacle : MonoBehaviour
 
             Destroy(gameObject);
         }
-        else if (other.CompareTag("Obstacle"))
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
         }
