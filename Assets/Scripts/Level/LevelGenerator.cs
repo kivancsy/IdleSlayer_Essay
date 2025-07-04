@@ -66,7 +66,7 @@ public class LevelGenerator : MonoBehaviour
 
     void MoveLane()
     {
-        if (player != null && OnPlayerInput())
+        if (player != null)
         {
             for (int i = 0; i < grounds.Count; i++)
             {
@@ -82,6 +82,7 @@ public class LevelGenerator : MonoBehaviour
             }
         }
     }
+
     public bool OnPlayerInput()
     {
         if (!hasStartedRunning && Keyboard.current.wKey.wasPressedThisFrame)
